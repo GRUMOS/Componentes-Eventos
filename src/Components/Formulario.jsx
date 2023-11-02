@@ -2,13 +2,29 @@ import React, { useState } from 'react';
 
 const Formulario = () => {
   const [nombre, setNombre] = useState('');
-  const [apellido, setApellido] = useState('');
-  const [edad, setEdad] = useState('');
   const [email, setEmail] = useState('');
+  const [contrasena, setContrasena] = useState('');
+  const [confirmarContrasena, setConfirmarContrasena] = useState('');
+  const [error, setError] = useState(false);
+
+  const validarDatos = (e) => {
+    e.preventDefault();
+
+    if (nombre === '' || email === '' || contrasena === '' || confirmarContrasena === '') {
+      setError(true);
+      return;
+    }
+    setError(false);
+    setNombre('');
+    setEmail('');
+    setContrasena('');
+    setConfirmarContrasena('');
+  };
 
   return (
     <>
-      <form className="formulario">
+      <form className="formulario" onSubmit={validarDatos}>
+        {error && <p>Todos los campos son obligatorios</p>}
         <div className="form-group">
           <input
             type="text"
@@ -21,32 +37,32 @@ const Formulario = () => {
         </div>
         <div className="form-group">
           <input
-            type="text"
-            name="apellido"
-            className="form-control"
-            placeholder="Apellido"
-            onChange={(e) => setApellido(e.target.value)}
-            value={apellido}
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="text"
-            name="edad"
-            className="form-control"
-            placeholder="Edad"
-            onChange={(e) => setEdad(e.target.value)}
-            value={edad}
-          />
-        </div>
-        <div className="form-group">
-          <input
             type="email"
             name="email"
             className="form-control"
             placeholder="Email"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
+          />
+        </div>
+        <div className="form-group">
+          <input
+            type="password"
+            name="contrasena"
+            className="form-control"
+            placeholder="Contraseña"
+            onChange={(e) => setContrasena(e.target.value)}
+            value={contrasena}
+          />
+        </div>
+        <div className="form-group">
+          <input
+            type="password"
+            name="confirmarContrasena"
+            className="form-control"
+            placeholder="Confirmar Contraseña"
+            onChange={(e) => setConfirmarContrasena(e.target.value)}
+            value={confirmarContrasena}
           />
         </div>
         <button type="submit" className="btn btn-primary">
