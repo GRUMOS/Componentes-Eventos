@@ -22,11 +22,11 @@ const Formulario = () => {
       setErrorMessage("Las contraseñas deben ser iguales")
       return;
     }
-    if (!email.includes("@") || !email.includes(".cl") && !email.includes(".com"))
-  {setError(true);
-  setErrorMessage("Email no tiene formato correcto")
-  return;
-  }
+    if (!email.includes("@") || !email.includes(".cl") && !email.includes(".com")) {
+      setError(true);
+      setErrorMessage("Email no tiene formato correcto")
+      return;
+    }
     setError(false);
     setErrorMessage("Registro satisfactorio");
     setNombre('');
