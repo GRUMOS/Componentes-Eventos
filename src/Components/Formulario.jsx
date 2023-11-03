@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Alert from './Alert';
 
 const Formulario = () => {
   const [nombre, setNombre] = useState('');
@@ -17,15 +18,15 @@ const Formulario = () => {
       return;
     }
     if (contrasena !== confirmarContrasena){
-        setError(true);
-        setErrorMessage("Las contraseñas deben ser iguales")
-        return;
-      }
-      if (!email.includes("@") || !email.includes(".cl") && !email.includes(".com"))
-      {setError(true);
+      setError(true);
+      setErrorMessage("Las contraseñas deben ser iguales")
+      return;
+    }
+    if (!email.includes("@") || !email.includes(".cl") && !email.includes(".com")) {
+      setError(true);
       setErrorMessage("Email no tiene formato correcto")
       return;
-      }
+    }
     setError(false);
     setErrorMessage("Registro satisfactorio");
     setNombre('');
@@ -49,7 +50,6 @@ const Formulario = () => {
         </div>
         <div className="form-group">
           <input
-            type="email"
             name="email"
             className="form-control"
             placeholder="Email"
@@ -77,7 +77,7 @@ const Formulario = () => {
             value={confirmarContrasena}
           />
         </div>
-        {errorMessage && <Alert message= {errorMessage}></Alert>}
+        {errorMessage && <Alert message= {errorMessage} isError={error}></Alert>}
         <button type="submit" className="btn btn-primary">
           Enviar
         </button>
