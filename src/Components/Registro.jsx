@@ -16,6 +16,7 @@ const Registro = () => {
         <SocialButton icon={iconGithub} />
         <SocialButton icon={iconLinkedin} />
         <p>o usa tu email para registrarse</p>
+        <Formulario/> 
       </div>
     );
   }
