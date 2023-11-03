@@ -6,15 +6,28 @@ const Formulario = () => {
   const [contrasena, setContrasena] = useState('');
   const [confirmarContrasena, setConfirmarContrasena] = useState('');
   const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(false);
 
   const validarDatos = (e) => {
     e.preventDefault();
 
     if (nombre === '' || email === '' || contrasena === '' || confirmarContrasena === '') {
       setError(true);
+      setErrorMessage("Todos los campos son obligatorios")
       return;
     }
+    if (contrasena !== confirmarContrasena){
+        setError(true);
+        setErrorMessage("Las contraseñas deben ser iguales")
+        return;
+      }
+      if (!email.includes("@") || !email.includes(".cl") && !email.includes(".com"))
+      {setError(true);
+      setErrorMessage("Email no tiene formato correcto")
+      return;
+      }
     setError(false);
+    setErrorMessage("Registro satisfactorio");
     setNombre('');
     setEmail('');
     setContrasena('');
@@ -24,7 +37,6 @@ const Formulario = () => {
   return (
     <>
       <form className="formulario" onSubmit={validarDatos}>
-        {error && <p>Todos los campos son obligatorios</p>}
         <div className="form-group">
           <input
             type="text"
@@ -65,6 +77,7 @@ const Formulario = () => {
             value={confirmarContrasena}
           />
         </div>
+        {errorMessage && <Alert message= {errorMessage}></Alert>}
         <button type="submit" className="btn btn-primary">
           Enviar
         </button>
