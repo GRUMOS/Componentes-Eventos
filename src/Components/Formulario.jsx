@@ -28,6 +28,7 @@ const Formulario = () => {
   return;
   }
     setError(false);
+    setErrorMessage("Registro satisfactorio");
     setNombre('');
     setEmail('');
     setContrasena('');
@@ -49,7 +50,6 @@ const Formulario = () => {
         </div>
         <div className="form-group">
           <input
-            type="email"
             name="email"
             className="form-control"
             placeholder="Email"
@@ -77,7 +77,7 @@ const Formulario = () => {
             value={confirmarContrasena}
           />
         </div>
-        {errorMessage && <Alert message= {errorMessage}></Alert>}
+        {errorMessage && <Alert message= {errorMessage} isError={error}></Alert>}
         <button type="submit" className="btn btn-primary">
           Enviar
         </button>

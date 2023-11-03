@@ -1,8 +1,9 @@
 import React from 'react';
+import './Alert.css'
 
-const Alert = ({ message }) => {
+const Alert = ({ message, isError}) => {
   return (
-    <div>
+    <div className={isError ? "error" : "exito"}>
       {message}
     </div>
   );
