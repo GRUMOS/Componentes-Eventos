@@ -4,6 +4,7 @@ import SocialButton from './SocialButton';
 import Alert from './Alert';
 import Formulario from './Formulario';
 
+
 const Registro = () => {
     const iconFacebook = <FaFacebook />;
     const iconGithub = <FaGithub />;
@@ -17,6 +18,7 @@ const Registro = () => {
         <SocialButton icon={iconLinkedin} />
         <p>o usa tu email para registrarse</p>
         <Formulario/> 
+        <Alert/>
       </div>
     );
   }
