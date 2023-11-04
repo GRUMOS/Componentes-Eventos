@@ -39,4 +39,17 @@ body {
     margin-top: 5px; 
     
   }
+  .fondo{
+    background-image: url(/img/fondo.jpg);
+  }
+
+  .card{
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+
+  
+    
+  }
   

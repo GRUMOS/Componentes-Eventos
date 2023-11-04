@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Alert from './Alert';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const Formulario = () => {
   const [nombre, setNombre] = useState('');
@@ -14,7 +16,7 @@ const Formulario = () => {
 
     if (nombre === '' || email === '' || contrasena === '' || confirmarContrasena === '') {
       setError(true);
-      setErrorMessage("Todos los campos son obligatorios")
+      setErrorMessage("Completa todos los campos!")
       return;
     }
     if (contrasena !== confirmarContrasena){
@@ -78,7 +80,7 @@ const Formulario = () => {
           />
         </div>
         {errorMessage && <Alert message= {errorMessage} isError={error}></Alert>}
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-success btn-lg btn-block">
           Enviar
         </button>
       </form>
